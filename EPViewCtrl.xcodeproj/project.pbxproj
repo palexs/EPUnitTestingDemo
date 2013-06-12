@@ -23,6 +23,9 @@
 		74EABCB5175783D6005C0371 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74EABC90175783D6005C0371 /* Foundation.framework */; };
 		74EABCBD175783D6005C0371 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74EABCBB175783D6005C0371 /* InfoPlist.strings */; };
 		74EABCC0175783D7005C0371 /* EPViewCtrlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EABCBF175783D7005C0371 /* EPViewCtrlTests.m */; };
+		74EABCC917578493005C0371 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EABCA7175783D6005C0371 /* ViewController.m */; };
+		74EABCCD1758E4A9005C0371 /* FakeNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EABCCC1758E4A9005C0371 /* FakeNotificationCenter.m */; };
+		AF50049D8C73476DB3361B4D /* libPods-EPViewCtrlTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B8308F11934F69BDDCDBEA /* libPods-EPViewCtrlTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65B8308F11934F69BDDCDBEA /* libPods-EPViewCtrlTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EPViewCtrlTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EABC8B175783D6005C0371 /* EPViewCtrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPViewCtrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EABC8E175783D6005C0371 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74EABC90175783D6005C0371 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,8 +60,11 @@
 		74EABCB2175783D6005C0371 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		74EABCBA175783D6005C0371 /* EPViewCtrlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EPViewCtrlTests-Info.plist"; sourceTree = "<group>"; };
 		74EABCBC175783D6005C0371 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		74EABCBE175783D7005C0371 /* EPViewCtrlTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPViewCtrlTests.h; sourceTree = "<group>"; };
 		74EABCBF175783D7005C0371 /* EPViewCtrlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPViewCtrlTests.m; sourceTree = "<group>"; };
+		74EABCCA17588A45005C0371 /* ViewController_ViewControllerExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_ViewControllerExt.h; sourceTree = "<group>"; };
+		74EABCCB1758E4A9005C0371 /* FakeNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeNotificationCenter.h; sourceTree = "<group>"; };
+		74EABCCC1758E4A9005C0371 /* FakeNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeNotificationCenter.m; sourceTree = "<group>"; };
+		9342230D561E4F93BCF9F070 /* Pods-EPViewCtrlTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EPViewCtrlTests.xcconfig"; path = "Pods/Pods-EPViewCtrlTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +85,7 @@
 				74EABCB3175783D6005C0371 /* SenTestingKit.framework in Frameworks */,
 				74EABCB4175783D6005C0371 /* UIKit.framework in Frameworks */,
 				74EABCB5175783D6005C0371 /* Foundation.framework in Frameworks */,
+				AF50049D8C73476DB3361B4D /* libPods-EPViewCtrlTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +99,7 @@
 				74EABCB8175783D6005C0371 /* EPViewCtrlTests */,
 				74EABC8D175783D6005C0371 /* Frameworks */,
 				74EABC8C175783D6005C0371 /* Products */,
+				9342230D561E4F93BCF9F070 /* Pods-EPViewCtrlTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +119,7 @@
 				74EABC90175783D6005C0371 /* Foundation.framework */,
 				74EABC92175783D6005C0371 /* CoreGraphics.framework */,
 				74EABCB2175783D6005C0371 /* SenTestingKit.framework */,
+				65B8308F11934F69BDDCDBEA /* libPods-EPViewCtrlTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,6 +132,7 @@
 				74EABCA6175783D6005C0371 /* ViewController.h */,
 				74EABCA7175783D6005C0371 /* ViewController.m */,
 				74EABCA9175783D6005C0371 /* ViewController.xib */,
+				74EABCCA17588A45005C0371 /* ViewController_ViewControllerExt.h */,
 				74EABC95175783D6005C0371 /* Supporting Files */,
 			);
 			path = EPViewCtrl;
@@ -144,7 +155,8 @@
 		74EABCB8175783D6005C0371 /* EPViewCtrlTests */ = {
 			isa = PBXGroup;
 			children = (
-				74EABCBE175783D7005C0371 /* EPViewCtrlTests.h */,
+				74EABCCB1758E4A9005C0371 /* FakeNotificationCenter.h */,
+				74EABCCC1758E4A9005C0371 /* FakeNotificationCenter.m */,
 				74EABCBF175783D7005C0371 /* EPViewCtrlTests.m */,
 				74EABCB9175783D6005C0371 /* Supporting Files */,
 			);
@@ -184,10 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74EABCC6175783D7005C0371 /* Build configuration list for PBXNativeTarget "EPViewCtrlTests" */;
 			buildPhases = (
+				766632B5E1C54EFD8137EBAB /* Check Pods Manifest.lock */,
 				74EABCAC175783D6005C0371 /* Sources */,
 				74EABCAD175783D6005C0371 /* Frameworks */,
 				74EABCAE175783D6005C0371 /* Resources */,
 				74EABCAF175783D6005C0371 /* ShellScript */,
+				2BB1E532932549A19E7758B8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +264,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2BB1E532932549A19E7758B8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-EPViewCtrlTests-resources.sh\"\n";
+		};
 		74EABCAF175783D6005C0371 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,6 +290,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		766632B5E1C54EFD8137EBAB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -281,6 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74EABCC0175783D7005C0371 /* EPViewCtrlTests.m in Sources */,
+				74EABCC917578493005C0371 /* ViewController.m in Sources */,
+				74EABCCD1758E4A9005C0371 /* FakeNotificationCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +391,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -371,7 +415,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -402,6 +446,7 @@
 		};
 		74EABCC7175783D7005C0371 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9342230D561E4F93BCF9F070 /* Pods-EPViewCtrlTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EPViewCtrl.app/EPViewCtrl";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -419,6 +464,7 @@
 		};
 		74EABCC8175783D7005C0371 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9342230D561E4F93BCF9F070 /* Pods-EPViewCtrlTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EPViewCtrl.app/EPViewCtrl";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -453,6 +499,7 @@
 				74EABCC5175783D7005C0371 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74EABCC6175783D7005C0371 /* Build configuration list for PBXNativeTarget "EPViewCtrlTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +508,7 @@
 				74EABCC8175783D7005C0371 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
