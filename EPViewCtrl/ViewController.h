@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-NSString * const kDummyNotification;
+extern NSString * const kDummyNotification;
 
 @interface ViewController : UIViewController
 

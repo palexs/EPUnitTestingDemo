@@ -111,7 +111,7 @@
     [sut view];
     
     // ASSERT
-    STAssertTrue([[[sut plusButton] actionsForTarget:sut forControlEvent:UIControlEventTouchUpInside] containsObject:@"incrementCount:"], @"");
+    STAssertTrue([[[sut plusButton] actionsForTarget:sut forControlEvent:UIControlEventTouchUpInside] containsObject:NSStringFromSelector(@selector(incrementCount:))], @"");
 }
 
 - (void)testMinusButtonAction
@@ -120,7 +120,7 @@
     [sut view];
     
     // ASSERT
-    STAssertTrue([[[sut minusButton] actionsForTarget:sut forControlEvent:UIControlEventTouchUpInside] containsObject:@"decrementCount:"], @"");
+    STAssertTrue([[[sut minusButton] actionsForTarget:sut forControlEvent:UIControlEventTouchUpInside] containsObject:NSStringFromSelector(@selector(decrementCount:))], @"");
 }
 
 - (void)testSaveButtonAction
@@ -129,7 +129,7 @@
     [sut view];
     
     // ASSERT
-    STAssertTrue([[[sut saveButton] actionsForTarget:sut forControlEvent:UIControlEventTouchUpInside] containsObject:@"saveCount:"], @"");
+    STAssertTrue([[[sut saveButton] actionsForTarget:sut forControlEvent:UIControlEventTouchUpInside] containsObject:NSStringFromSelector(@selector(saveCount:))], @"");
 }
 
 - (void)testResetButtonAction
@@ -138,7 +138,7 @@
     [sut view];
     
     // ASSERT
-    STAssertTrue([[[sut resetButton] actionsForTarget:sut forControlEvent:UIControlEventTouchUpInside] containsObject:@"resetCount:"], @"");
+    STAssertTrue([[[sut resetButton] actionsForTarget:sut forControlEvent:UIControlEventTouchUpInside] containsObject:NSStringFromSelector(@selector(resetCount:))], @"");
 }
 
 - (void)testIncrementCountAddsOneToCountLabel
@@ -215,7 +215,7 @@
     [sut setNotificationCenter:mockNotificationCenter];
     
     // ACT
-    [sut viewDidLoad];
+    [sut viewWillAppear:NO];
     
     // ASSERT
     [mockNotificationCenter verify];
@@ -230,7 +230,7 @@
 {
     // ACT
     [sut setNotificationCenter:fakeNotificationCenter];
-    [sut viewDidLoad];
+    [sut viewWillAppear:NO];
     
     // ASSERT
     STAssertTrue([fakeNotificationCenter hasObject:sut forNotification:kDummyNotification], @"");
@@ -241,7 +241,7 @@
     // ARRANGE
     id mockObserver = [OCMockObject observerMock];
     [[NSNotificationCenter defaultCenter] addMockObserver:mockObserver name:kDummyNotification object:nil];
-    [[mockObserver expect] notificationWithName:kDummyNotification object:[OCMArg any]];
+    [[mockObserver expect] notificationWithName:kDummyNotification object:sut userInfo:[OCMArg any]];
     
     // ACT
     [sut saveCount:nil];
@@ -257,7 +257,7 @@
 {
     // ARRANGE
     id mockNotificationCenter = [OCMockObject mockForClass:[NSNotificationCenter class]];
-    [[mockNotificationCenter expect] postNotificationName:kDummyNotification object:[OCMArg any]];
+    [[mockNotificationCenter expect] postNotificationName:kDummyNotification object:sut userInfo:[OCMArg any]];
     [sut setNotificationCenter:mockNotificationCenter];
     
     // ACT
@@ -275,7 +275,7 @@
     // ARRANGE
     id mockSut = [OCMockObject partialMockForObject:sut];
     [[mockSut expect] onSave:[OCMArg any]];
-    [mockSut viewDidLoad]; // Invokes -addObserver:selector:name:object:
+    [mockSut viewWillAppear:NO]; // Invokes -addObserver:selector:name:object:
     
     // ACT
     [[NSNotificationCenter defaultCenter] postNotificationName:kDummyNotification object:nil];
@@ -287,14 +287,14 @@
 - (void)testDummyNotificationHandlerDoesItsJob // REACT
 {
     // ARRANGE
-    id notificationMock = [OCMockObject mockForClass:[NSNotification class]];
-    [[[notificationMock stub] andReturn:@11] object];
+    NSNotification *notif = [NSNotification notificationWithName:kDummyNotification object:sut userInfo:@{@"countValue" : @11}];
+    
     id labelMock = [OCMockObject mockForClass:[UILabel class]];
     [[labelMock expect] setText:@"11"];
     [sut setSavedCountLabel:labelMock];
     
     // ACT
-    [sut onSave:(NSNotification *)notificationMock]; // Invokes [self.savedCountLabel setText:[NSString stringWithFormat:@"%i", [[notif object] integerValue]];
+    [sut onSave:notif]; // Invokes [self.savedCountLabel setText: ...];
     
     // ASSERT
     [labelMock verify];

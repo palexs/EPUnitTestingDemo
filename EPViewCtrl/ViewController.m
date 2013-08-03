@@ -37,13 +37,26 @@ NSString * const kDummyNotification = @"DummyNotification";
     _count = [countNumber integerValue];
     
     self.currentCountLabel.text = [NSString stringWithFormat:@"%i", _count];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     [self.notificationCenter addObserver:self selector:@selector(onSave:) name:kDummyNotification object:nil];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.notificationCenter removeObserver:self];
+    
+    [super viewWillDisappear:animated];
+}
+
 - (void)onSave:(NSNotification *)notif
 {
-    self.savedCountLabel.text = [NSString stringWithFormat:@"%i", [[notif object] integerValue]];
+    NSInteger countInt = [[[notif userInfo] objectForKey:@"countValue"] integerValue];
+    self.savedCountLabel.text = [NSString stringWithFormat:@"%i", countInt];
 }
 
 - (IBAction)incrementCount:(id)sender
@@ -62,7 +75,8 @@ NSString * const kDummyNotification = @"DummyNotification";
 {
     [_userDefaults setObject:[NSNumber numberWithInt:self.count] forKey:@"countValue"];
     [_userDefaults synchronize];
-    [self.notificationCenter postNotificationName:kDummyNotification object:[NSNumber numberWithInt:_count]];
+    NSDictionary *userInfo = @{@"countValue" : [NSNumber numberWithInt:_count]};
+    [self.notificationCenter postNotificationName:kDummyNotification object:self userInfo:userInfo];
 }
 
 - (IBAction)resetCount:(id)sender
@@ -87,7 +101,7 @@ NSString * const kDummyNotification = @"DummyNotification";
 
 - (void)dealloc
 {
-    [self.notificationCenter removeObserver:self];
+
 }
 
 @end
